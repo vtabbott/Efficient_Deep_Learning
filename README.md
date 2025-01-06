@@ -23,7 +23,34 @@ We use notation for transformer axes sizes drawn from [*Neural Circuit Diagrams*
    FlashAttention-2 [achieves] only 35% utilization on the H100 GPU. [...] FlashAttention-3, achieves speedup on H100 GPUs by 1.5-2.0× with FP16 reaching up to 740 TFLOPs/s (75% utilization), and with FP8 reaching close to 1.2 PFLOPs/s. We validate that FP8 FlashAttention-3 achieves 2.6× lower numerical error than a baseline FP8 attention.
 </details>
 
-### Minor Modifications
+### PEFT Methods
+<details> 
+  <summary><a href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation of Large Language Models</a></summary>
+
+   * Freeze most model parameters, utilize low-rank decomposed matrices for adapters
+
+   * Around 2x fast than full-parameter training
+
+   * Memory efficient due to saving in Adam's first/second moments
+
+   * Save disk space for storing model weights, particularly good for customization scenarios
+</details>
+<details> 
+  <summary><a href="https://arxiv.org/abs/2305.14314">QLoRA: Efficient Finetuning of Quantized LLMs</a></summary>
+
+   * Quantize the model weights during training, further save memory consumption
+</details>
+<details> 
+  <summary><a href="https://arxiv.org/abs/2403.17919">LISA: Layerwise Importance Sampling for Memory-Efficient Large Language Model Fine-Tuning</a></summary>
+   * Sample activated layers during training
+
+   * Around 1.5x faster than LoRA
+
+   * Even better than full-parameter training in instruction following tasks
+</details>
+
+
+### Model Architecture Modifications
 <details> 
   <summary><a href="https://arxiv.org/abs/2305.13245">GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints</a></summary>
 
