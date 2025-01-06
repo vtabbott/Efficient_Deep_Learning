@@ -42,6 +42,7 @@ We use notation for transformer axes sizes drawn from [*Neural Circuit Diagrams*
 </details>
 <details> 
   <summary><a href="https://arxiv.org/abs/2403.17919">LISA: Layerwise Importance Sampling for Memory-Efficient Large Language Model Fine-Tuning</a></summary>
+
    * Sample activated layers during training
 
    * Around 1.5x faster than LoRA
