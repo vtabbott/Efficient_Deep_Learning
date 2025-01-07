@@ -20,7 +20,7 @@ We use notation for transformer axes sizes drawn from [*Neural Circuit Diagrams*
 </details>
 <details> 
   <summary><a href="https://arxiv.org/abs/2407.08608">FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision</a></summary>
-   However, it has yet to take advantage of new capabilities present in recent hardware, with FlashAttention-2 achieving only 35% utilization on the H100 GPU. [...] FlashAttention-3, achieves speedup on H100 GPUs by 1.5-2.0× with FP16 reaching up to 740 TFLOPs/s (75% utilization), and with FP8 reaching close to 1.2 PFLOPs/s. We validate that FP8 FlashAttention-3 achieves 2.6× lower numerical error than a baseline FP8 attention.
+   FlashAttention-2 [achieves] only 35% utilization on the H100 GPU. [...] FlashAttention-3, achieves speedup on H100 GPUs by 1.5-2.0× with FP16 reaching up to 740 TFLOPs/s (75% utilization), and with FP8 reaching close to 1.2 PFLOPs/s. We validate that FP8 FlashAttention-3 achieves 2.6× lower numerical error than a baseline FP8 attention.
 </details>
 
 ### Minor Modifications
@@ -30,5 +30,5 @@ We use notation for transformer axes sizes drawn from [*Neural Circuit Diagrams*
    * K, V parameter count and generation compute reduced by a factor of $g$.
    * MatMul compute goes from $4\overbar{x}mhd+4\overbar{q}mhd+2\overbar{q}\overbar{x}mhd$ to $4\overbar{x}mhd/g+4\overbar{q}mhd+2\overbar{q}\overbar{x}mhd$.
    * Number of parameters reduces from $4mhd$ to $2mhd + 2mhd/g$.
-   * Bandwidth cost reduces by a factor of $g$.
+   * (Internal attention) Bandwidth cost reduced by a factor of $g$.
 </details>
