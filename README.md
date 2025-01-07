@@ -57,13 +57,6 @@ We use notation for transformer axes sizes drawn from [*Neural Circuit Diagrams*
 
    * We reduce the number of heads for K and V by a factor of $g$, repeating them to match the number of query/output heads, $h$.
 
-   * With $g = 8$, this has a minor impact on output quality, but a drastic improvement in performance.
+   * With $g = 8$, we get strong performance and minimal inference loss. This reduces K, V parameter count and generation compute cost by a factor of 8.
 
-   * K, V parameter count and generation compute reduced by a factor of $g$.
-
-   * MatMul compute goes from $4\overline{x} mhd+4\overline{q} mhd+2\overline{q} \overline{x} mhd$ to $4\overline{x} mhd/g+4\overline{q} mhd+2\overline{q} \overline{x} mhd$.
-
-   * Number of parameters reduces from $4mhd$ to $2mhd + 2mhd/g$.
-
-   * (Internal attention) Bandwidth cost reduced by a factor of $g$.
 </details>
